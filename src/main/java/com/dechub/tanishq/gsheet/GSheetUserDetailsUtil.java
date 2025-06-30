@@ -1342,7 +1342,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 
-
 @Component
 
 public class GSheetUserDetailsUtil {
@@ -2919,10 +2918,10 @@ public List<Map<String, Object>> getCompletedEventDetails(String storeCode) thro
         List<List<Object>> res = new ArrayList<>();
         List<Object> item = new ArrayList<>();
 
-        item.add(name);     // Column 1: Name
-        item.add(contact);  // Column 2: Contact
+        item.add(name);
+        item.add(contact);
 
-        // Column 3: Created At
+        // Add current timestamp
         String createdAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         item.add(createdAt);
 
