@@ -1338,6 +1338,8 @@ import javax.imageio.ImageIO;
 
 import java.io.ByteArrayOutputStream;
 import java.util.stream.Collectors;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 @Component
@@ -2912,11 +2914,17 @@ public List<Map<String, Object>> getCompletedEventDetails(String storeCode) thro
             return false;
         }
     }
-    private List<List<Object>> formInputRivaahUserData(String name,String contact) {
+    private List<List<Object>> formInputRivaahUserData(String name, String contact) {
         List<List<Object>> res = new ArrayList<>();
         List<Object> item = new ArrayList<>();
+
         item.add(name);
         item.add(contact);
+
+        // Add current timestamp
+        String createdAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        item.add(createdAt);
+
         res.add(item);
         return res;
     }
